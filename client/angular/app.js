@@ -6,7 +6,13 @@
 
       $routeProvider
         .when('/',{
-            templateUrl: '/index.html'
+            templateUrl: 'partials/dashboard.html'
+        })
+        .when('/loads',{
+            templateUrl: 'partials/loads.html'
+        })
+        .when('/equipment', {
+            templateUrl: 'partials/equipment.html'
         })
         
         .otherwise({
