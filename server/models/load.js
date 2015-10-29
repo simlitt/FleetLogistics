@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/* AddressSchema and CostSchema are plain objects because
+   they are not used in an array in the parent schema */
 var AddressSchema = {
   street1: String,
   street2: String,
