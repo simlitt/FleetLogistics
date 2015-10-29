@@ -1,8 +1,8 @@
 //this creates the angular application
 //  inject the ngRoute dependency in the module.
-    var myApp = angular.module('myApp', ['ngRoute']);
+    var fleetLogistics = angular.module('fleetLogistics', ['ngRoute']);
     //  use the config method to set up routing:
-    myApp.config(function ($routeProvider) {
+    fleetLogistics.config(function ($routeProvider) {
 
       $routeProvider
         .when('/',{
