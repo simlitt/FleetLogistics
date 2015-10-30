@@ -1,9 +1,13 @@
-<!DOCTYPE html>	
-<html>
-<head>
-	<title>Home</title>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
 
-	<!-- THESE TWO VERSIONS BELOW MUST MATCH!!!! -->
+<!-- THESE TWO VERSIONS BELOW MUST MATCH!!!! -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -19,13 +23,27 @@
       <!-- equipment controller and factory -->
       <script type='text/javascript' src="angular/controllers/equipmentController.js"></script>
       <script type='text/javascript' src="angular/factories/equipmentFactory.js"></script>
+      <!-- foundation -->
+      <link rel="stylesheet" type="text/css" href="css/foundation.css">
+      <script type="text/javascript" src="js/vendor/modernizer.js"></script>
 
-</head>
-<body>
-	<div ng-app='fleetLogistics'>
-        <div ng-view="">
-        </div>
+
+
+
+
+
+
+  </head>
+  <body>
+
+<div ng-app='fleetLogistics'>
+    <div ng-view="">
     </div>
+</div>
+    
 
-</body>
+
+    
+   
+  </body>
 </html>
