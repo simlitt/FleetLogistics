@@ -13,7 +13,7 @@ var AddressSchema = {
 
 var PickupSchema = new Schema({
   name: String,
-  time: Date,
+  datetime: Date,
   address: AddressSchema,
   commodity_description: String,
   carrier_instructions: String
@@ -21,7 +21,7 @@ var PickupSchema = new Schema({
 
 var DropoffSchema = new Schema({
   name: String,
-  time: Date,
+  datetime: Date,
   address: AddressSchema
 });
 
@@ -46,7 +46,7 @@ var UpdateSchema = new Schema({
 var LoadSchema = new Schema({
   name: String,
   load: Number,
-  _driver: {type: Schema.Types.ObjectId, ref: 'User'},
+  _driver: [{type: Schema.Types.ObjectId, ref: 'User'}],
   _truck: {type: Schema.Types.ObjectId, ref: 'Truck'},
   _trailers: [{type: Schema.Types.ObjectId, ref: 'Trailer'}],
   pickup_numbers: [Number],

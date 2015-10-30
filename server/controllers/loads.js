@@ -14,15 +14,25 @@ module.exports = {
     });
   },
   create: function (req, res) {
-    // find the driver that this load will belong to first
-    User.findById(req.body.driver_id, function (err, driver) {
-      var load = new Load(req.body);
-      driver.loads.push(load);
-      driver.save( function (err) {
-        load.save( function (err) {
-          res.json(load);
-        });
-      });
+    // create the load
+    var load = new Load(req.body);
+    load.save( function (err) {
+      // find all drivers for this load
+      User.find({_id: { $in: req.body.driver_ids} }, function (err, drivers) {
+        for (var i = 0; i < drivers.length; i++) {
+          drivers[i].loads.push(load);
+          // save this load to each driver
+          drivers[i].save( function (err) {
+            if (err) {
+              console.log(err);
+            }
+            console.log('driver saved');
+          });
+        }
+        // process.nextTick( function () )
+        console.log('sending response');
+        res.json(load);
+      });      
     });
   },
   show: function (req, res) {
@@ -63,22 +73,25 @@ module.exports = {
         console.log(err);
       }
       else {
-        // if removing the load is successful, findthe driver this load belongs to
-        User.findById(load._driver, function (err, driver) {
+        // if removing the load is successful, findthe drivers this load belongs to
+        User.find({_id: { $in: load._driver } }, function (err, drivers) {
           if (err) {
             console.log(err);
           }
           else {
-            // remove the load from this driver's loads
-            driver.loads.id(load._id).remove();
-            driver.save( function (err) {
-              if (err) {
-                console.log(err);
-              }
-              else {
-                res.end();
-              }
-            });
+            // remove the load from each driver's loads
+            for (var i = 0; i < drivers.length; i++) {
+              driver.loads.id(load._id).remove();
+              driver.save( function (err) {
+                if (err) {
+                  console.log(err);
+                }
+                console.log('driver saved');
+              });        
+            }
+            // process.nextTick( function () )
+            console.log('sending response');
+            res.end();
           }
         });
       }
