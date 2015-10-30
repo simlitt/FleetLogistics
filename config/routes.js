@@ -63,4 +63,8 @@ module.exports = function(app) {
   .delete( function (req, res) {
     equips.destroy(req, res);
   });
+
+  app.post('/breakdowns', function (req, res) {
+    breakdowns.create(req, res);
+  });
 }
