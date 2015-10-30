@@ -16,7 +16,12 @@ module.exports = {
   create: function (req, res) {
     var user = new User(req.body);
     user.save( function (err) {
-      res.json(user);
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.json(user);
+      }
     });
   },
   show: function (req, res) {
@@ -46,8 +51,8 @@ module.exports = {
     });
   },
   destroy: function (req, res) {
-    /* Should we do soft deletes for drivers?
-       Expect that shipments may not be deleted when driver is "destroyed" */
+    /* Do soft deletes for drivers (need to add an attribute to schema)
+       Expect that shipments will not be deleted when driver is "destroyed" */
     // User.remove({_id: req.params.id}, function (err) {
     //   if (err) {
     //     console.log(err);
