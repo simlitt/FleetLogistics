@@ -3,3 +3,4 @@ fleetLogistics.factory('loadsFactory', function($http){
 
 	return loadsFactory
 })
+
