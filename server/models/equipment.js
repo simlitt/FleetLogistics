@@ -12,6 +12,6 @@ var EquipmentSchema = new Schema({
 
 var Equipment = mongoose.model('Equipment', EquipmentSchema);
 
-var options = new Schema({ discriminatorKey: 'type'});
-Equipment.discriminator('Truck', options);
-Equipment.discriminator('Trailer', options);
+// var options = new Schema({ discriminatorKey: 'type'});
+// Equipment.discriminator('Truck', options);
+// Equipment.discriminator('Trailer', options);
