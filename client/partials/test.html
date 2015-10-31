@@ -1,0 +1,54 @@
+<div class="row">
+<!-- dashboard -->
+<!-- <p>loads in progress:</p>
+<p>unpaid invoices:</p>
+<p>map:</p> -->
+<!-- equipment -->
+<div ng-controller="equipmentController">
+  <h1>testing equips</h1>
+  <h2>equips#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>number</th>
+        <th>model</th>
+        <th>year</th>
+        <th>breakdowns</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="equip in equips">
+        <td ng-bind="equip._id"></td>
+        <td ng-bind="equip.number"></td>
+        <td ng-bind="equip.model"></td>
+        <td ng-bind="equip.year"></td>
+        <td ng-bind="equip.breakdowns"></td>
+        <td ng-bind="equip.created_at"></td>
+        <td ng-bind="equip.updated_at"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>equips#create</h2>
+  <form>
+    <div>
+      <label>number:</label>
+      <input type="text" ng-model="newEquip.number">
+    </div>
+    <div>
+      <label>model:</label>
+      <input type="text" ng-model="newEquip.model">
+    </div>
+    <div>
+      <label>year:</label>
+      <input type="text" ng-model="newEquip.year">
+    </div>
+    <button ng-click="create()">create</button>
+  </form>
+</div>
+
+
+
+</div>
