@@ -16,6 +16,9 @@ module.exports = {
   create: function (req, res) {
     // create the load
     var load = new Load(req.body);
+    load.done = false;
+    load.billed = false;
+    load.paid = false;
     load.save( function (err) {
       // find all drivers for this load
       User.find({_id: { $in: req.body.driver_ids} }, function (err, drivers) {

@@ -1,10 +1,8 @@
-<div class="row">
-<!-- dashboard -->
-<!-- <p>loads in progress:</p>
-<p>unpaid invoices:</p>
-<p>map:</p> -->
-<!-- equipment -->
-<div ng-controller="equipmentController">
+<!-- <div class="row"> -->
+
+<!-- //// EQUIPMENT MOCK HTML //// STARTS HERE //// -->
+
+<!-- <div ng-controller="equipmentController">
   <h1>testing equips</h1>
   <h2>equips#index</h2>
   <table>
@@ -60,8 +58,98 @@
       <li ng-repeat="(key, value) in equip">{{key}}: {{value}}</li>
     </ul>
   </div>
+</div> -->
+
+<!-- //// EQUIPMENT MOCK HTML //// ENDS HERE //// -->
+
+<!-- //// LOAD MOCK HTML //// STARTS HERE //// -->
+
+<div ng-controller="loadsController">
+  <h1>testing loads</h1>
+  <h2>loads#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>name</th>
+        <th>number</th>
+        <th>_trucks</th>
+        <th>_trailers</th>
+        <th>pickup_numbers</th>
+        <th>pickups</th>
+        <th>dropoffs</th>
+        <th>rate_confirmation</th>
+        <th>done</th>
+        <th>billed</th>
+        <th>paid</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="load in loads">
+        <td><a href="" ng-click="show(load._id)" ng-bind="load._id"></a></td>
+        <td ng-bind="load.name"></td>
+        <td ng-bind="load.number"></td>
+        <td ng-bind="load._trucks"></td>
+        <td ng-bind="load._trailers"></td>
+        <td ng-bind="load.pickup_numbers"></td>
+        <td ng-bind="load.pickups"></td>
+        <td ng-bind="load.dropoffs"></td>
+        <td ng-bind="load.rate_confirmation"></td>
+        <td ng-bind="load.done"></td>
+        <td ng-bind="load.billed"></td>
+        <td ng-bind="load.paid"></td>
+        <td ng-bind="load.created_at | date: 'medium'"></td>
+        <td ng-bind="load.updated_at | date: 'medium'"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="small-6 columns">
+    <h2>loads#create</h2>
+    <form>
+      <div>
+        <label>name:</label>
+        <input type="text" ng-model="newLoad.name">
+      </div>
+      <div>
+        <label>number:</label>
+        <input type="text" ng-model="newLoad.number">
+      </div>
+      <div>
+        <label>_truck:</label>
+        <select ng-model="newLoad._truck">
+          <option value="5555">5555</option>
+          <option ng-repeat="truck in avail_trucks" ng-bind="truck.number" value="truck.number"></option>
+        </select>
+      </div>
+      <div>
+        <label>_trailer:</label>
+        <select ng-model="newLoad._trailer">
+          <option value="6666">6666</option>
+          <option ng-repeat="trailer in avail_trailers" ng-bind="trailer.number" value="trailer.number"></option>
+        </select>
+      </div>
+      <div>
+        <label>pickup_numbers:</label>
+        <input type="text" ng-model="newLoad.pickup_numbers">
+      </div>
+      <div>
+        <label>rate_confirmation:</label>
+        <input type="text" ng-model="newLoad.rate_confirmation">
+      </div>
+      <button ng-click="create()">create</button>
+    </form>
+  </div>
+  <div class="small-6 columns">
+    <h2>loads#show</h2>
+    <ul>
+      <li ng-repeat="(key, value) in load">{{key}}: {{value}}</li>
+    </ul>
+  </div>
 </div>
 
+<!-- //// LOAD MOCK HTML //// ENDS HERE //// -->
 
 
 </div>
