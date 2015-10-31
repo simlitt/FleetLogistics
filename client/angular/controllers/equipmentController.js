@@ -1,16 +1,24 @@
 fleetLogistics.controller('equipmentController', function($scope, equipmentFactory){
-	console.log('equipController loaded');
 
   equipmentFactory.index( function (data) {
     $scope.equips = data;
-    console.log($scope.equips);
   });
+
+  $scope.newEquip = {
+    type: "Truck"
+  };
 
   $scope.create = function() {
     // console.log($scope.newEquip);
     equipmentFactory.create($scope.newEquip, function (data) {
-      console.log('back to equipController');
       $scope.equips.push(data);
+      $scope.equip = data;
     });
+  }
+
+  $scope.show = function (id) {
+    equipmentFactory.show(id, function (data) {
+      $scope.equip = data;
+    })
   }
 })

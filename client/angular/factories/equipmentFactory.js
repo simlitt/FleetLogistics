@@ -13,5 +13,12 @@ fleetLogistics.factory('equipmentFactory', function($http){
     });
   }
 
+  equipmentFactory.show = function (id, callback) {
+    $http.get('/equips/'+id).then( function (response) {
+      callback(response.data);
+    });
+  }
+
+
 	return equipmentFactory
 })
