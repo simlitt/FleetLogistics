@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  role: String,
+  // role: String,
   first_name: String,
   last_name: String,
   dob: Date,

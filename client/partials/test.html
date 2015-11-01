@@ -1,5 +1,8 @@
 <!-- <div class="row"> -->
 
+<!--  -->
+<!--  -->
+<!--  -->
 <!-- //// EQUIPMENT MOCK HTML //// STARTS HERE //// -->
 
 <!-- <div ng-controller="equipmentController">
@@ -61,10 +64,12 @@
 </div> -->
 
 <!-- //// EQUIPMENT MOCK HTML //// ENDS HERE //// -->
-
+<!--  -->
+<!--  -->
+<!--  -->
 <!-- //// LOAD MOCK HTML //// STARTS HERE //// -->
 
-<div ng-controller="loadsController">
+<!-- <div ng-controller="loadsController">
   <h1>testing loads</h1>
   <h2>loads#index</h2>
   <table>
@@ -147,9 +152,86 @@
       <li ng-repeat="(key, value) in load">{{key}}: {{value}}</li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- //// LOAD MOCK HTML //// ENDS HERE //// -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- //// USER MOCK HTML //// STARTS HERE //// -->
+
+<div ng-controller="usersController">
+  <h1>testing users</h1>
+  <h2>users#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>dob</th>
+        <th>username</th>
+        <th>email</th>
+        <th>password</th>
+        <th>loads</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td><a href="" ng-click="show(user._id)" ng-bind="user._id"></a></td>
+        <td ng-bind="user.first_name"></td>
+        <td ng-bind="user.last_name"></td>
+        <td ng-bind="user.dob"></td>
+        <td ng-bind="user.username"></td>
+        <td ng-bind="user.email"></td>
+        <td ng-bind="user.password"></td>
+        <td ng-bind="user.loads"></td>
+        <td ng-bind="user.created_at | date: 'medium'"></td>
+        <td ng-bind="user.updated_at | date: 'medium'"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="small-6 columns">
+    <h2>users#create</h2>
+    <form>
+      <div>
+        <label>first_name:</label>
+        <input type="text" ng-model="newUser.first_name">
+      </div>
+      <div>
+        <label>last_name:</label>
+        <input type="text" ng-model="newUser.last_name">
+      </div>
+      <div>
+        <label>dob:</label>
+        <input type="date" ng-model="newUser.dob">
+      </div>
+      <div>
+        <label>username:</label>
+        <input type="text" ng-model="newUser.username">
+      </div>
+      <div>
+        <label>email:</label>
+        <input type="email" ng-model="newUser.email">
+      </div>
+      <div>
+        <label>password:</label>
+        <input type="password" ng-model="newUser.password">
+      </div>
+      <button ng-click="create()">create</button>
+    </form>
+  </div>
+  <div class="small-6 columns">
+    <h2>users#show</h2>
+    <ul>
+      <li ng-repeat="(key, value) in user">{{key}}: {{value}}</li>
+    </ul>
+  </div>
+</div>
+
+<!-- //// USER MOCK HTML //// ENDS HERE //// -->
 
 
 </div>
