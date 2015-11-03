@@ -1,15 +1,3 @@
-#loadsTable {
-	width: 600px;
-	margin: 0 auto;
-	float: left;
+.dashboardTables {
 	padding: 10px;
-}
-#invoicesTable {
-	width: 600px;
-	margin: 0 auto;
-	float: left;
-	padding: 10px;
-	position: relative;
-	left: 50px;
-
 }

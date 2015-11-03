@@ -1,4 +1,4 @@
-<div ng-controller="loadsController">
+<div ng-controller="loadsController" class="container">
 <!-- link for icons -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 <!-- Navbar -->
@@ -25,6 +25,36 @@
   </section>
 </nav>
 
+<div id="loadsTable">
+	<form ng-model = "searchLoads">
+		<input type='text' value='Search Loads' style='width: 30%'>
+	</form>
+	<table style="width: 100%">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Pickup Date</th>
+				<th>Dropoff Date</th>
+				<th>Pickup Location</th>
+				<th>Dropoff Location</th>
+				<th>Completed</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Walmart_1</td>
+				<td>01/01/2016</td>
+				<td>01/01/2016</td>
+				<td>Victorville, CA</td>
+				<td>Victorville, CA</td>
+				<td><input type= "checkbox"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
 
+<!-- div to close container -->
 </div>
