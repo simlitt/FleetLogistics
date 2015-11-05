@@ -14,6 +14,9 @@
         .when('/equipment', {
             templateUrl: 'partials/equipment.html'
         })
+        .when('/addLoad', {
+            templateUrl: 'partials/addLoad.html'
+        })
         
         .otherwise({
           redirectTo: '/'
