@@ -5,16 +5,18 @@
     fleetLogistics.config(function ($routeProvider) {
 
       $routeProvider
-        .when('/',{
+        .when('/', {
             templateUrl: 'partials/dashboard.html'
         })
-        .when('/loads',{
+        .when('/loads', {
             templateUrl: 'partials/loads.html'
         })
         .when('/equipment', {
             templateUrl: 'partials/equipment.html'
         })
-        
+        .when('/test', {
+            templateUrl: 'partials/test.html'
+        })
         .otherwise({
           redirectTo: '/'
         });

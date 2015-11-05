@@ -15,6 +15,7 @@ module.exports = {
   },
   create: function (req, res) {
     var user = new User(req.body);
+    user.password = user.generateHash(user.password);
     user.save( function (err) {
       if (err) {
         console.log(err);
@@ -36,7 +37,7 @@ module.exports = {
   },
   update: function (req, res) {
     User.findByIdAndUpdate(req.params.id, {
-      role: req.body.role,
+      // role: req.body.role,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       dob: req.body.dob,
