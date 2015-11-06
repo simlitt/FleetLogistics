@@ -8,7 +8,7 @@ var app = express();
 //allows us to handle post data from hhtp requests
 var bodyParser = require('body-parser');
 //this is for regular post requests
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 //this is for post requests that want json back
 app.use(bodyParser.json());
 

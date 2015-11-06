@@ -1,0 +1,329 @@
+<!-- //// EQUIPMENT MOCK HTML //// STARTS HERE //// -->
+
+<!-- <div ng-controller="equipmentController">
+  <h1>testing equips</h1>
+  <h2>equips#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>number</th>
+        <th>model</th>
+        <th>year</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="equip in equips">
+        <td><a href="" ng-click="show(equip._id)" ng-bind="equip._id"></a></td>
+        <td ng-bind="equip.number"></td>
+        <td ng-bind="equip.model"></td>
+        <td ng-bind="equip.year"></td>
+        <td ng-bind="equip.created_at | date: 'medium'"></td>
+        <td ng-bind="equip.updated_at | date: 'medium'"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="small-6 columns">
+    <h2>equips#create</h2>
+    <form>
+      <div>
+        <label>type:</label>
+        <select ng-model="newEquip.type">
+          <option value="Truck">Truck</option>
+          <option value="Trailer">Trailer</option>
+        </select>
+      </div>
+      <div>
+        <label>number:</label>
+        <input type="text" ng-model="newEquip.number">
+      </div>
+      <div>
+        <label>model:</label>
+        <input type="text" ng-model="newEquip.model">
+      </div>
+      <div>
+        <label>year:</label>
+        <input type="text" ng-model="newEquip.year">
+      </div>
+      <button ng-click="create()">create</button>
+    </form>
+  </div>
+  <div class="small-6 columns" ng-show="equip">
+    <h2>equips#show</h2>
+    <ul>
+      <li ng-repeat="(key, value) in equip">{{key}}: {{value}}</li>
+    </ul>
+  </div>
+</div> -->
+
+<!-- //// EQUIPMENT MOCK HTML //// ENDS HERE //// -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- //// LOAD MOCK HTML //// STARTS HERE //// -->
+
+<div ng-controller="loadsController">
+  <h1>testing loads</h1>
+  <h2>loads#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>name</th>
+        <th>number</th>
+        <th>_drivers</th>
+        <th>_trucks</th>
+        <th>_trailers</th>
+        <th>pickup_numbers</th>
+        <th>rate_confirmation</th>
+        <th>done</th>
+        <th>billed</th>
+        <th>paid</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="load in loads">
+        <td><a href="" ng-click="show(load._id)" ng-bind="load._id"></a></td>
+        <td ng-bind="load.name"></td>
+        <td ng-bind="load.number"></td>
+        <td ng-bind="load._drivers"></td>
+        <td ng-bind="load._trucks"></td>
+        <td ng-bind="load._trailers"></td>
+        <td ng-bind="load.pickup_numbers"></td>
+        <td ng-bind="load.rate_confirmation"></td>
+        <td ng-bind="load.done"></td>
+        <td ng-bind="load.billed"></td>
+        <td ng-bind="load.paid"></td>
+        <td ng-bind="load.created_at | date: 'medium'"></td>
+        <td ng-bind="load.updated_at | date: 'medium'"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="small-4 columns">
+    <h2>loads#create</h2>
+    <form>
+      <div>
+        <label>name:</label>
+        <input type="text" ng-model="newLoad.name">
+      </div>
+      <div>
+        <label>number:</label>
+        <input type="text" ng-model="newLoad.number">
+      </div>
+      <div>
+        <label>_drivers:</label>
+        <select ng-model="newLoad._drivers">
+          <option ng-repeat="driver in drivers" ng-bind="driver.username" value="{{driver._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>_trucks:</label>
+        <select ng-model="newLoad._trucks">
+          <option ng-repeat="truck in trucks" ng-bind="truck.number" value="{{truck._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>_trailers:</label>
+        <select ng-model="newLoad._trailers">
+          <option ng-repeat="trailer in trailers" ng-bind="trailer.number" value="{{trailer._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>pickup_numbers:</label>
+        <input type="text" ng-model="newLoad.pickup_numbers">
+      </div>
+      <div>
+        <label>pickup:</label>
+        <div class="small-offset-1">
+          <input type="text" ng-model="newLoad.pickups[0].name" placeholder="name">
+          <input type="datetime-local" ng-model="newLoad.pickups[0].datetime" placeholder="datetime">
+          <input type="text" ng-model="newLoad.pickups[0].commodity_description" placeholder="commodity_description">
+          <input type="text" ng-model="newLoad.pickups[0].carrier_instructions" placeholder="carrier_instructions">
+          <input type="text" ng-model="newLoad.pickups[0].address.street1" placeholder="address.street1">
+          <input type="text" ng-model="newLoad.pickups[0].address.street2" placeholder="address.street2">
+          <input type="text" ng-model="newLoad.pickups[0].address.city" placeholder="address.city">
+          <input type="text" ng-model="newLoad.pickups[0].address.state" placeholder="address.state">
+          <input type="text" ng-model="newLoad.pickups[0].address.zip_code" placeholder="address.zip_code">
+        </div>
+      </div>
+      <div>
+        <label>dropoff:</label>
+        <div class="small-offset-1">
+          <input type="text" ng-model="newLoad.dropoffs[0].name" placeholder="name">
+          <input type="datetime-local" ng-model="newLoad.dropoffs[0].datetime" placeholder="datetime">
+          <input type="text" ng-model="newLoad.dropoffs[0].address.street1" placeholder="address.street1">
+          <input type="text" ng-model="newLoad.dropoffs[0].address.street2" placeholder="address.street2">
+          <input type="text" ng-model="newLoad.dropoffs[0].address.city" placeholder="address.city">
+          <input type="text" ng-model="newLoad.dropoffs[0].address.state" placeholder="address.state">
+          <input type="text" ng-model="newLoad.dropoffs[0].address.zip_code" placeholder="address.zip_code">
+        </div>
+      </div>
+      <div>
+        <label>rate_confirmation:</label>
+        <input type="text" ng-model="newLoad.rate_confirmation">
+      </div>
+      <button ng-click="create()">create</button>
+    </form>
+  </div>
+  <div class="small-4 columns" ng-show="load">
+    <h2>loads#show</h2>
+    <ul>
+      <li ng-repeat="(key, value) in load">{{key}}: {{value}}</li>
+    </ul>
+  </div>
+  <div class="small-4 columns" ng-show="load">
+    <h2>loads#update</h2>
+    <form>
+      <div>
+        <label>name:</label>
+        <input type="text" ng-model="load.name">
+      </div>
+      <div>
+        <label>number:</label>
+        <input type="text" ng-model="load.number">
+      </div>
+      <div>
+        <label>_drivers:</label>
+        <select ng-model="load._drivers">
+          <option ng-repeat="driver in drivers" ng-bind="driver.username" value="{{driver._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>_trucks:</label>
+        <select ng-model="load._trucks">
+          <option ng-repeat="truck in trucks" ng-bind="truck.number" value="{{truck._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>_trailers:</label>
+        <select ng-model="load._trailers">
+          <option ng-repeat="trailer in trailers" ng-bind="trailer.number" value="{{trailer._id}}"></option>
+        </select>
+      </div>
+      <div>
+        <label>pickup_numbers:</label>
+        <input type="text" ng-model="load.pickup_numbers">
+      </div>
+      <div>
+        <label>rate_confirmation:</label>
+        <input type="text" ng-model="load.rate_confirmation">
+      </div>
+      <button ng-click="update()">update</button>
+    </form>
+  </div>
+</div>
+
+<!-- //// LOAD MOCK HTML //// ENDS HERE //// -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- //// USER MOCK HTML //// STARTS HERE //// -->
+
+<!-- <div ng-controller="usersController">
+  <h1>testing users</h1>
+  <h2>users#index</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>dob</th>
+        <th>username</th>
+        <th>email</th>
+        <th>password</th>
+        <th>loads</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td><a href="" ng-click="show(user._id)" ng-bind="user._id"></a></td>
+        <td ng-bind="user.first_name"></td>
+        <td ng-bind="user.last_name"></td>
+        <td ng-bind="user.dob | date: 'MM/dd/yyyy'"></td>
+        <td ng-bind="user.username"></td>
+        <td ng-bind="user.email"></td>
+        <td ng-bind="user.password"></td>
+        <td ng-bind="user.loads"></td>
+        <td ng-bind="user.created_at | date: 'medium'"></td>
+        <td ng-bind="user.updated_at | date: 'medium'"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="small-4 columns">
+    <h2>users#create</h2>
+    <form>
+      <div>
+        <label>first_name:</label>
+        <input type="text" ng-model="newUser.first_name">
+      </div>
+      <div>
+        <label>last_name:</label>
+        <input type="text" ng-model="newUser.last_name">
+      </div>
+      <div>
+        <label>dob:</label>
+        <input type="date" ng-model="newUser.dob">
+      </div>
+      <div>
+        <label>username:</label>
+        <input type="text" ng-model="newUser.username">
+      </div>
+      <div>
+        <label>email:</label>
+        <input type="email" ng-model="newUser.email">
+      </div>
+      <div>
+        <label>password:</label>
+        <input type="password" ng-model="newUser.password">
+      </div>
+      <button ng-click="create()">create</button>
+    </form>
+  </div>
+  <div class="small-4 columns" ng-show="user">
+    <h2>users#show</h2>
+    <ul>
+      <li ng-repeat="(key, value) in user">{{key}}: {{value}}</li>
+    </ul>
+  </div>
+  <div class="small-4 columns" ng-show="user">
+    <h2>users#update</h2>
+    <form>
+      <div>
+        <label>first_name:</label>
+        <input type="text" ng-model="user.first_name">
+      </div>
+      <div>
+        <label>last_name:</label>
+        <input type="text" ng-model="user.last_name">
+      </div>
+      <div>
+        <label>dob:</label>
+        <input type="date" ng-model="user.dob">
+      </div>
+      <div>
+        <label>username:</label>
+        <input type="text" ng-model="user.username">
+      </div>
+      <button ng-click="update()">update</button>
+    </form>
+  </div>
+</div> -->
+      <!-- <div>
+        <label>email:</label>
+        <input type="email" ng-model="user.email">
+      </div>
+      <div>
+        <label>password:</label>
+        <input type="password" ng-model="user.password">
+      </div> -->
+    <!-- <h2>users#destroy</h2>
+    <button class="alert" ng-click="destroy()">destroy</button> -->
+
+<!-- //// USER MOCK HTML //// ENDS HERE ////

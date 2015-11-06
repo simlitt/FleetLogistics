@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-// var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  role: String,
+  // role: String,
   first_name: String,
   last_name: String,
   dob: Date,
@@ -15,12 +15,12 @@ var UserSchema = new Schema({
   updated_at: {type: Date, default: Date.now}
 });
 
-// UserSchema.methods.generateHash = function(password) {
-//   return bcrypt.hashSync(password, bcrypt.genSaltSync(), null);
-// };
+UserSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, 12);
+};
 
-// UserSchema.methods.authenticate = function(password) {
-//   return bcrypt.compareSync(password, this.password);
-// };
+UserSchema.methods.authenticate = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 mongoose.model('User', UserSchema);
