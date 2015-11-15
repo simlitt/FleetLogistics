@@ -7,7 +7,7 @@ var session = require('express-session');
 // require node-uuid for creating the unique user id on the session cookie
 var uuid = require('node-uuid');
 // require Mongo-store to save session inforamtion on database
-var MongoStore = require('connect-mongo');
+var MongoStore = require('connect-mongo')(session);
 // instantiate the app
 var app = express();
 
@@ -22,9 +22,17 @@ app.use(session({
     genid: function(req) {
         return uuid.v1();
     },
+    store: new MongoStore({
+        url: 'mongodb://localhost/fleetlogistics',
+        autoRemove: 'native',
+        touchAfter: 24 * 3600 // time period in seconds || = 24 hours; Let the session be updated once on a 24 hour period
+    }),
     secret: 'FleetLogistics',
-    resave: true,
-    saveUninitialized: true
+    saveUninitialized: false, // don't create a session until something is stored
+    resave: false, // don't save session if unmodified
+    cookie: {
+        maxAge: 30 * 24 * 60 * 60 * 1000 // log out after 1 month (days * hours * minutes * seconds * millisecond)
+    }
 }))
 
 // set up a static file server that points to the "client" directory
