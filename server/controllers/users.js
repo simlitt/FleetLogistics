@@ -21,6 +21,9 @@ module.exports = {
         console.log(err);
       }
       else {
+        req.session.user = user;
+        req.session.loggedin = true;
+        console.log("Succesfull user add");
         res.json(user);
       }
     });
@@ -42,7 +45,7 @@ module.exports = {
       last_name: req.body.last_name,
       dob: req.body.dob,
       username: req.body.username,
-      /* We probably need another mechanism for handling 
+      /* We probably need another mechanism for handling
          email and password updates because they are sensitive */
       // email: req.body.email,
       // password: req.body.password,
@@ -63,5 +66,16 @@ module.exports = {
     //   }
     // });
     res.end()
+  },
+  find: function(req, res) {
+      User.findOne({email: req.body.email}, function(err, user){
+          if (user.authenticate(req.body.password)) {
+              req.session.user = user;
+              req.session.loggedin = true;
+              res.json({login: true});
+          } else {
+              res.json({login: false});
+          }
+      })
   }
 }

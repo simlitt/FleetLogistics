@@ -20,7 +20,40 @@
         .when('/test', {
             templateUrl: 'partials/test.html'
         })
+        .when('/register', {
+            templateUrl: 'partials/register.html'
+        })
+        .when('/login', {
+            templateUrl: 'partials/login.html'
+        })
+        .when('/home', {
+            templateUrl: 'partials/home.html',
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        })
         .otherwise({
           redirectTo: '/'
         });
     });
+
+
+    var checkLoggedin = function($q, $timeout, $http, $location) {
+      // Initialize a new promise
+      var deferred = $q.defer();
+
+      // Make an AJAX call to check if the user is logged in
+      $http.get('/loggedin').success(function(user){
+
+        if (user !== false) {
+            // Authenticated
+            deferred.resolve();
+        } else {
+            // Not authenticated
+            deferred.reject();
+            $location.url('/login');
+        }
+      });
+
+      return deferred.promise;
+    };
