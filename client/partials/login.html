@@ -1,0 +1,21 @@
+<div ng-controller="loginController">
+	<div class="row">
+		<div class="small-12 text-center columns">
+			<h1>Welcome</h1>
+		</div>
+	</div>
+	<div class="small-12 small-centered columns">
+		<div>
+		  <label>Email</label>
+		  <input type="email" ng-model="user.email">
+		</div>
+		<div>
+		  <label>Password</label>
+		  <input type="password" ng-model="user.password">
+		</div>
+		<div class="text-center">
+			<button ng-click="login()">Login</button>
+		</div>
+
+	</div>
+</div>

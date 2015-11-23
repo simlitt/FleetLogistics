@@ -10,7 +10,12 @@
     "async": "^1.5.0",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.1",
+    "connect-mongo": "^0.8.2",
     "express": "^4.13.3",
-    "mongoose": "^4.2.3"
+    "express-session": "^1.12.1",
+    "mongoose": "^4.2.3",
+    "node-uuid": "^1.4.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

@@ -67,4 +67,19 @@ module.exports = function(app) {
   app.post('/breakdowns', function (req, res) {
     breakdowns.create(req, res);
   });
+  app.get('/loggedin', function(req, res) {
+	  var sess = req.session
+	  if (sess.loggedin == true) {
+	    res.send(sess)
+	  } else {
+	    res.send(false)
+	  }
+  });
+  app.post('/login', function(req, res) {
+	  users.find(req, res);
+  })
+  app.get('/logout', function(req, res) {
+	  req.session.destroy();
+	  res.redirect('/');
+  });
 }
