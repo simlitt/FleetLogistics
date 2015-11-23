@@ -43,13 +43,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Walmart_1</td>
-				<td>01/01/2016</td>
-				<td>01/01/2016</td>
-				<td>Victorville, CA</td>
-				<td>Victorville, CA</td>
+			<tr ng-repeat="load in loads">
+				<td>id#</td>
+				<td ng-bind="load.name"></td>
+				<td ng-bind="load.pickups[0].datetime | date: 'medium'"></td>
+				<td ng-bind="load.dropoffs[0].datetime | date: 'medium'"></td>
+				<td ng-bind="load.pickups[0].name"></td>
+				<td ng-bind="load.dropoffs[0].name"></td>
 				<td><input type= "checkbox"></td>
 			</tr>
 		</tbody>

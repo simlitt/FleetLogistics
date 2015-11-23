@@ -1,67 +1,79 @@
-<div>
+<div ng-controller="loadsController">
 
-
+<form>
 <div class="row">
+
 	<div class="large-6 columns">
 	<label>Basic Load Info:</label><br>
-	<form>
-		Load Name: <input type="text" name="loadName">
-		Load #: <input type="text" name="loadNumber">
-		Driver: <select>
+		Load Name: <input type="text" name="loadName" ng-model="newLoad.name">
+		Load #: <input type="text" name="loadNumber" ng-model="newLoad.number">
+		Drivers: <select ng-model="newLoad._drivers">
 			<option>Joe</option>
 			<option>Joe</option>
 			<option>Joe</option>
 			<option>Joe</option>
 			<option>Joe</option>
 		</select>
-		Trailer: <select>
+		Trucks: <select ng-model="newLoad._trucks">
+			<option>1</option>
+			<option>1</option>
+			<option>1</option>
+			<option>1</option>
+		</select>
+		Trailers: <select ng-model="newLoad._trailers">
 			<option>1</option>
 			<option>1</option>
 			<option>1</option>
 			<option>1</option>
 			<option>1</option>
 		</select>
-		Pickup Numbers: <input type="text" name="pickupNumbers">
-	</form>
+		Pickup Numbers: <input type="text" name="pickupNumbers" ng-model="newLoad.pickup_numbers">
 	</div>
 	<div class="large-6 columns">
 		<label>Misc Information:</label><br>
-	<form>
-		Commodity Description: <input type="text" name="commodityDescription">
-		Carrier Instructions: <input type="text" name="carrierInstructions">
-		Rate Confirmation: <input type="text" name="rateConfirmation">
-	</form>
+		Commodity Description: <input type="text" name="commodityDescription" ng-model="newLoad.pickups.commodity_description">
+		Carrier Instructions: <input type="text" name="carrierInstructions" ng-model="newLoad.pickups.carrier_instructions">
+		Rate Confirmation: <input type="text" name="rateConfirmation" ng-model="newLoad.rate_confirmation">
 	</div>
 </div>
 
 <div class="row">
 	<div class="large-6 columns">
-	<form>
 		<label>Pickup Information:</label><br>
-		Pickup Name:<input type="text" name="pickupName">
-		Pickup Date:<input type="date" name="pickupDate">
+		Pickup Name:<input type="text" name="pickupName" ng-model="newLoad.pickups[0].name">
+		Pickup Date:<input type="datetime-local" name="pickupDate" ng-model="newLoad.pickups[0].datetime">
 		<p>Address:</p>
-		Address Line 1:<input type="text" name="pickupAddressLine1">
-		Address Line 2:<input type="text" name="pickupAddressLine2">
-		City: <input type="text" name="pickupCity">
-		State: <input type="text" name="pickupState">
-		ZipCode: <input type="text" name="pickupZipcode">
-	</form>
+		Address Line 1:<input type="text" name="pickupAddressLine1" ng-model="newLoad.pickups[0].address.street1">
+		Address Line 2:<input type="text" name="pickupAddressLine2" ng-model="newLoad.pickups[0].address.street2">
+		City: <input type="text" name="pickupCity" ng-model="newLoad.pickups[0].address.city">
+		State: <input type="text" name="pickupState" ng-model="newLoad.pickups[0].address.state">
+		ZipCode: <input type="text" name="pickupZipcode" ng-model="newLoad.pickups[0].address.zip_code">
 	</div>
 	<div class="large-6 columns">
-	<form>
 		<label>Dropoff Information:</label><br>
-		Dropoff Name:<input type="text" name="dropoffName">
-		Dropoff Date:<input type="date" name="dropoffDate">
+		Dropoff Name:<input type="text" name="dropoffName" ng-model="newLoad.dropoffs[0].name">
+		Dropoff Date:<input type="datetime-local" name="dropoffDate" ng-model="newLoad.dropoffs[0].datetime">
 		<p>Address:</p>
-		Address Line 1:<input type="text" name="dropoffAddressLine1">
-		Address Line 2:<input type="text" name="dropoffAddressLine2">
-		City: <input type="text" name="dropoffCity">
-		State: <input type="text" name="dropoffState">
-		ZipCode: <input type="text" name="dropoffZipcode">
-	</form>
+		Address Line 1:<input type="text" name="dropoffAddressLine1" ng-model="newLoad.dropoffs[0].address.street1">
+		Address Line 2:<input type="text" name="dropoffAddressLine2" ng-model="newLoad.dropoffs[0].address.street2">
+		City: <input type="text" name="dropoffCity" ng-model="newLoad.dropoffs[0].address.city">
+		State: <input type="text" name="dropoffState" ng-model="newLoad.dropoffs[0].address.state">
+		ZipCode: <input type="text" name="dropoffZipcode" ng-model="newLoad.dropoffs[0].address.zip_code">
 	</div>
 </div>
+
+<div class="row">
+	<div class="large-6 columns">
+		<a href="#/loads" class="button">Go Back</a>
+	</div>
+	<div class="large-6 columns">
+		<a href="#/loads" class="button" ng-click="create()">Create New Load</a>
+	</div>
+</div>
+
+ 	
+</form>
+
 
 
 	

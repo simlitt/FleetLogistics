@@ -3,6 +3,7 @@ fleetLogistics.factory('loadsFactory', function($http){
 
   loadsFactory.index = function (callback) {
     $http.get('/loads').then( function (response) {
+      console.log(response.data)
       callback(response.data);
     });
   }

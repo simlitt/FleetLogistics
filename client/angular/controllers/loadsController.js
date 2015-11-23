@@ -34,9 +34,11 @@ fleetLogistics.controller('loadsController', function($scope, loadsFactory, user
     });
   }
 
+
   $scope.show = function (id) {
     loadsFactory.show(id, function (data) {
       $scope.load = data;
+      console.log($scope.load)
     })
   }
 })
