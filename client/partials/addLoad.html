@@ -7,25 +7,17 @@
 	<label>Basic Load Info:</label><br>
 		Load Name: <input type="text" name="loadName" ng-model="newLoad.name">
 		Load #: <input type="text" name="loadNumber" ng-model="newLoad.number">
-		Drivers: <select ng-model="newLoad._drivers">
-			<option>Joe</option>
-			<option>Joe</option>
-			<option>Joe</option>
-			<option>Joe</option>
-			<option>Joe</option>
+		Drivers:
+		<select ng-model="newLoad._drivers">
+		  <option ng-repeat="driver in drivers" ng-bind="driver.username" value="{{driver._id}}"></option>
 		</select>
-		Trucks: <select ng-model="newLoad._trucks">
-			<option>1</option>
-			<option>1</option>
-			<option>1</option>
-			<option>1</option>
+		Trucks:
+		<select ng-model="newLoad._trucks">
+		  <option ng-repeat="truck in trucks" ng-bind="truck.number" value="{{truck._id}}"></option>
 		</select>
-		Trailers: <select ng-model="newLoad._trailers">
-			<option>1</option>
-			<option>1</option>
-			<option>1</option>
-			<option>1</option>
-			<option>1</option>
+		Trailers:
+		<select ng-model="newLoad._trailers">
+		  <option ng-repeat="trailer in trailers" ng-bind="trailer.number" value="{{trailer._id}}"></option>
 		</select>
 		Pickup Numbers: <input type="text" name="pickupNumbers" ng-model="newLoad.pickup_numbers">
 	</div>
@@ -71,12 +63,12 @@
 	</div>
 </div>
 
- 	
+
 </form>
 
 
 
-	
+
 
 
 

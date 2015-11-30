@@ -1,4 +1,5 @@
 <div ng-controller="equipmentController">
+<link rel="stylesheet" type="text/css" href="css/equipment.css">
 <!-- link for icons -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 <!-- navbar -->
@@ -16,6 +17,10 @@
       <li class=""><a href="#/loads">Loads</a></li>
       <li class="divider"></li>
       <li class=""><a href="#/equipment">Equipment</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="#/drivers">Drivers</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="/logout">logout</a></li>
     </ul>
     <ul class="social-icons">
       <li><a href=""><i class="fi-telephone"></i></a></li>
@@ -24,7 +29,73 @@
     </ul>
   </section>
 </nav>
-
-
-
+    <div id="equipmentTable">
+        <form ng-model = "searchEquipment">
+            <input type='text' placeholder='Search Equipment' style='width: 30%' ng-model = "searchEquipment">
+        </form>
+        <a href="#/addEquipment" class="button">Add Equipment</a>
+        <div class="row fullWidth">
+            <h2>Equipment</h2>
+            <div class="large-3 columns">
+                <h5>Type:</h5>
+                <h5>Model:</h5>
+                <h5>Number:</h5>
+                <h5>Year:</h5>
+                <h5>Created at:</h5>
+                <h5>Updated at:</h5>
+                <h5>Breakdowns:</h5>
+            </div>
+            <div class="large-9 columns">
+                <h5 ng-bind="selected.__t"></h5>
+                <h5 ng-bind="selected.model"></h5>
+                <h5 ng-bind="selected.number"></h5>
+                <h5 ng-bind="selected.year"></h5>
+                <h5 ng-bind="selected.created_at | date: mediumDate"></h5>
+                <h5 ng-bind="selected.updated_at | date: mediumDate"></h5>
+                <h5 ng-bind="selected.breakdowns"></h5>
+            </div>
+        </div>
+        <!-- <div class="row"> -->
+            <div class="large-6 columns">
+                <label>Trucks</label>
+                <table style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>number</th>
+                            <th>model</th>
+                            <th>year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="truck in trucks | filter:searchEquipment" ng-click="select(truck)">
+                        <td ng-bind="truck.number"></td>
+                        <td ng-bind="truck.model"></td>
+                        <td ng-bind="truck.year"></td>
+                        <!-- <td ng-bind="equip.created_at | date: 'medium'"></td>
+                        <td ng-bind="equip.updated_at | date: 'medium'"></td> -->
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="large-6 columns">
+                <label>Trailers</label>
+                <table style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>number</th>
+                            <th>model</th>
+                            <th>year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="trailer in trailers | filter:searchEquipment" ng-click="select(trailer)">
+                        <td ng-bind="trailer.number"></td>
+                        <td ng-bind="trailer.model"></td>
+                        <td ng-bind="trailer.year"></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        <!-- </div> -->
+    </div>
 </div>

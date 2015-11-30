@@ -14,6 +14,9 @@
         .when('/equipment', {
             templateUrl: 'partials/equipment.html'
         })
+        .when('/addEquipment', {
+            templateUrl: 'partials/addEquipment.html'
+        })
         .when('/addLoad', {
             templateUrl: 'partials/addLoad.html'
         })
@@ -25,6 +28,12 @@
         })
         .when('/login', {
             templateUrl: 'partials/login.html'
+        })
+        .when('/drivers', {
+            templateUrl: 'partials/drivers.html'
+        })
+        .when('/addDriver', {
+            templateUrl: 'partials/addDriver.html'
         })
         .when('/home', {
             templateUrl: 'partials/home.html',
