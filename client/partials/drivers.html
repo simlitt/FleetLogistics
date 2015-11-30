@@ -1,0 +1,60 @@
+<div ng-controller="driversController">
+    <link rel="stylesheet" type="text/css" href="css/drivers.css">
+    <!-- link to icons -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <!-- Navbar -->
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <div class="logo">
+          <a href="http://zurb.com/stickers/images/intro-foundation.png"><img src="http://zurb.com/stickers/images/intro-foundation.png" /></a>
+        </div>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class=""><a href="#/">Dashboard</a></li>
+          <li class="divider"></li>
+          <li class=""><a href="#/loads">Loads</a></li>
+          <li class="divider"></li>
+          <li class=""><a href="#/equipment">Equipment</a></li>
+          <li class="divider"></li>
+          <li class=""><a href="#/drivers">Drivers</a></li>
+          <li class="divider"></li>
+          <li class=""><a href="/logout">logout</a></li>
+        </ul>
+        <ul class="social-icons">
+          <li><a href=""><i class="fi-telephone"></i></a></li>
+          <li><a href=""><i class="fi-social-linkedin"></i></a></li>
+          <li><a href=""><i class="fi-social-facebook"></i></a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div id="equipmentTable">
+        <form ng-model = "searchEquipment">
+            <input type='text' placeholder='Search Drivers' style='width: 30%' ng-model = "searchEquipment">
+        </form>
+        <a href="#/addDriver" class="button">Add Driver</a>
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>dob</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="driver in drivers">
+    				<td ng-bind="driver._id"></td>
+    				<td ng-bind="driver.username"></td>
+    				<td ng-bind="driver.first_name"></td>
+    				<td ng-bind="driver.last_name"></td>
+    				<!-- <td ng-bind="driver.pickups[0].name"></td> -->
+    				<td ng-bind="driver.dob | date: 'MM/dd/yyyy'"></td>
+    			</tr>
+            </tbody>
+        </table>
+    </div>
+</div>

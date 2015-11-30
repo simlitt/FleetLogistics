@@ -1,0 +1,27 @@
+<div ng-controller="equipmentController">
+	<div class="row">
+		<div class="small-12 text-center columns">
+			<h1>Add Equipment</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<label>Type:</label>
+			<select ng-model="newEquip.type">
+	          <option value="Truck">Truck</option>
+	          <option value="Trailer">Trailer</option>
+	        </select>
+			<label>Number:</label>
+			<input type="text" ng-model="newEquip.number">
+			<label>Model:</label>
+			<input type="text" ng-model="newEquip.model">
+			<label>Year:</label>
+			<input type="text" ng-model="newEquip.year">
+
+			<div class="text-center">
+				<button ng-click="create()">Create New Equipment</button>
+			</div>
+
+		</div>
+	</div>
+</div>
